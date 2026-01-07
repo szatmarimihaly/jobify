@@ -6,6 +6,7 @@ import { signIn } from "@/lib/auth-client"
 import CancelOutlinedIcon from '@mui/icons-material/CancelOutlined';
 import Link from "next/link"
 import GlowLine from "../Design/GlowLine"
+import BackButton from "../Button/BackButton"
 
 const SignIn = () => {
 
@@ -39,6 +40,9 @@ const SignIn = () => {
 
   return (
     <div className="flex flex-col items-center w-full max-w-xl mx-auto border-2 border-gray-200/10 rounded-2xl px-4 py-6">
+        <div className="w-full mb-10 md:mb-4">
+            <BackButton/>
+        </div>
         <h1 className="text-3xl font-bold bg-linear-to-r from-teal-500 to-blue-300 bg-clip-text text-transparent">Login to your account</h1>
         {error && (
             <p className="bg-gray-800 text-gray-500 px-4 py-2 rounded-lg my-4 font-bold flex items-center gap-2">
@@ -53,7 +57,7 @@ const SignIn = () => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="border border-gray-200/10 rounded px-4 py-2 shadow-gray shadow-sm outline-none focus: bg-[#111] focus:border-white/20 focus:shadow-[0_0_0_1px_rgba(255, 255, 255, 0.08)]"
+                className="border border-gray-200/10 rounded px-4 py-2 shadow-gray shadow-sm outline-none focus:bg-[#111] focus:border-white/20 focus:shadow-[0_0_0_1px_rgba(255, 255, 255, 0.08)]"
                 placeholder="Email"
                 required
             />
@@ -63,7 +67,7 @@ const SignIn = () => {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="border border-gray-200/10 rounded px-4 py-2 shadow-gray shadow-sm outline-none focus: bg-[#111] focus:border-white/20 focus:shadow-[0_0_0_1px_rgba(255, 255, 255, 0.08)]"
+                className="border border-gray-200/10 rounded px-4 py-2 shadow-gray shadow-sm outline-none focus:bg-[#111] focus:border-white/20 focus:shadow-[0_0_0_1px_rgba(255, 255, 255, 0.08)]"
                 placeholder="Password"
                 required
             />
@@ -71,7 +75,7 @@ const SignIn = () => {
             <button
                 type="submit"
                 disabled={loading}
-                className="bg-gray-400/10 px-4 py-2 rounded-xl font-bold animation hover:scale-105 lg:w-60 mx-auto mt-10 hover:bg-gray-400/20"
+                className="bg-gray-400/10 px-4 py-2 rounded font-bold animation hover:scale-105 w-full mx-auto mt-10 hover:bg-gray-400/20"
             >
                 {loading ? <Spinner/> : "Sign In"}
             </button>

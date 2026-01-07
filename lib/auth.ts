@@ -10,7 +10,17 @@ export const auth = betterAuth({
         provider: "pg",
         schema
     }),
+
     emailAndPassword : {
         enabled : true,
+    },
+
+    trustedOrigins : [
+        "http://localhost:3000",
+        "http://192.168.1.73:3000",
+    ],
+
+    advanced : {
+        disableCSRFCheck : process.env.NODE_ENV === "development",
     }
 });
