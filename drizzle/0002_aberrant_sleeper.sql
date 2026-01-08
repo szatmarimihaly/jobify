@@ -1,0 +1,1 @@
+ALTER TABLE "projects" ALTER COLUMN "experience_level" SET NOT NULL;

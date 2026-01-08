@@ -6,7 +6,6 @@ export type ProjectStatus =
 
 export type ExperienceLevel =
   | "entry"
-  | "junior"
   | "mid"
   | "senior"
   | "lead"
@@ -14,7 +13,6 @@ export type ExperienceLevel =
 
 export const EXPERIENCE_LABELS: Record<ExperienceLevel, string> = {
   entry: "Entry Level",
-  junior: "Junior Level",
   mid: "Mid Level",
   senior: "Senior Level",
   lead: "Lead Level",

@@ -4,6 +4,7 @@ import { getCurrentUser } from '@/lib/auth/getCurrentUser';
 import { db } from '@/db';
 import { projects } from '@/db/schema';
 import { nanoid } from 'nanoid';
+import { revalidateTag } from 'next/cache';
 
 export async function POST(req: NextRequest) {
   try {
@@ -77,6 +78,8 @@ export async function POST(req: NextRequest) {
       updatedAt: budapestTime,
     }).returning();
 
+    revalidateTag(`user-projects-${user.id}`, "default");
+
     return NextResponse.json(
       { 
         success: true, 
@@ -118,17 +121,19 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    // Get all user's projects
+    {/*// Get all user's projects
     const userProjects = await db.query.projects.findMany({
       where: (projects, { eq }) => eq(projects.userId, user.id),
       orderBy: (projects, { desc }) => [desc(projects.createdAt)],
     });
-
+    
     return NextResponse.json({
       success: true,
       projects: userProjects,
       count: userProjects.length,
     });
+
+    */}
 
   } catch (error) {
     console.error('Error fetching projects:', error);
@@ -137,4 +142,5 @@ export async function GET(req: NextRequest) {
       { status: 500 }
     );
   }
+  
 }

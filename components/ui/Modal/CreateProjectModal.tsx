@@ -11,7 +11,6 @@ interface CreateProjectModalProps {
 
 const EXPERIENCE_LEVELS = [
   { value: 'entry', label: 'Entry Level' },
-  { value: "junior", label: 'Junior Level' },
   { value: 'mid', label: 'Mid Level' },
   { value: 'senior', label: 'Senior' },
   { value: 'lead', label: 'Lead' },

@@ -9,13 +9,6 @@ interface ProjectCardProps {
 
 const ProjectCard = ({ project } : ProjectCardProps) => {
 
-    const statusColors = {
-        draft : "bg-gray-100",
-        processing : "bg-yellow-100",
-        completed : "bg-green-100",
-        failed : "bg-red-100"
-    };
-
   return (
     <Link
       href={`/dashboard/projects/${project.id}`}
@@ -32,7 +25,7 @@ const ProjectCard = ({ project } : ProjectCardProps) => {
 
       <div className="text-sm flex items-center mt-10 justify-between">
         <StatusBadge status={project.status}/>
-        <p className="text-gray-400">{project.createdAt.toLocaleDateString()}</p>
+        <p className="text-gray-400">{new Date(project.createdAt).toLocaleDateString()}</p>
       </div>
     </Link>
   )

@@ -6,6 +6,6 @@ export interface Project {
   jobTitle: string;
   experienceLevel: ExperienceLevel | null;
   latestScore: number | null;
-  createdAt: Date;
+  createdAt: string;
   status: ProjectStatus;
 }

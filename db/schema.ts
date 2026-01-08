@@ -169,7 +169,7 @@ export const projects = pgTable(
     companyName: text("company_name"),
     companyType: companyTypeEnum("company_type"),
     industry: text("industry"),
-    experienceLevel: experienceLevelEnum("experience_level"),
+    experienceLevel: experienceLevelEnum("experience_level").notNull(),
     keySkills: text("key_skills").array(),
     
     // Latest evaluation (denormalized for performance)
